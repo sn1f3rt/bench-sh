@@ -57,7 +57,7 @@ If you would like to report any issue with the script, any of the speedtest serv
 
 ## License
 
-Copyright (c) 2019-2023 Sayan "Sn1F3rt" Bhattacharyya  
+Copyright (c) 2019-present Sayan "Sn1F3rt" Bhattacharyya  
 Copyright (C) 2015 - 2017 by Hidden Refuge (Various bug fixes and performance improvements)  
 Copyright (C) 2011 by dmmcintyre3 (Speed Test Modification)  
 Copyright (C) 2011 by akamaras/camarg (Original Script)  
