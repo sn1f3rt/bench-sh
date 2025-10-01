@@ -120,8 +120,8 @@ speedtest4 () {
         echo "" | tee -a $HOME/bench.log
 
         # Australia Speed Test
-        unetsyd=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://au-syd-speedtest01.urlnetworks.net/file100.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$unetsyd" ]; then echo "Sydney, AU              URL Networks    $unetsyd " | tee -a $HOME/bench.log; else :; fi
+        dpsyd=$( wget -4 -O /dev/null --timeout=3 --tries=2 https://syd.download.datapacket.com/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$dpsyd" ]; then echo "Sydney, AU              Datapacket    $dpsyd " | tee -a $HOME/bench.log; else :; fi
         
         echo "" | tee -a $HOME/bench.log
         echo "" | tee -a $HOME/bench.log
