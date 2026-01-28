@@ -74,54 +74,50 @@ speedtest4 () {
         echo "Your public IPv4 is $ipiv" | tee -a $HOME/bench.log
         echo "" | tee -a $HOME/bench.log
 
-        # Cachefly CDN speed test
         echo "Location                Provider        Speed" | tee -a $HOME/bench.log
         echo "--------                --------        -----" | tee -a $HOME/bench.log
-        cachefly=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://cachefly.cachefly.net/100mb.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$cachefly" ]; then echo "CDN                     Cachefly        $cachefly" | tee -a $HOME/bench.log; else :; fi
+
+        # North America
+        atlga=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.atlanta.linode.com/100MB-atlanta.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$atlga" ]; then echo "Atlanta, GA, US         Linode          $atlga " | tee -a $HOME/bench.log; else :; fi
+        daltx=$( wget -4 -O /dev/null --timeout=3 --tries=2 https://speedtest.dfw1.enzu.com/100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$daltx" ]; then echo "Dallas, TX, US          Enzu            $daltx " | tee -a $HOME/bench.log; else :; fi
+        seawa=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://sea.download.datapacket.com/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$seawa" ]; then echo "Seattle, WA, US         Datapacket      $seawa " | tee -a $HOME/bench.log; else :; fi
+        sfcca=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://heliohost.org/speedtest/100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$sfcca" ]; then echo "San Francisco, CA, US   HelioHost       $sfcca " | tee -a $HOME/bench.log; else :; fi
+        wasdc=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.wdc2.us.leaseweb.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$wasdc" ]; then echo "Washington, DC, US      Leaseweb        $wasdc " | tee -a $HOME/bench.log; else :; fi
         echo "" | tee -a $HOME/bench.log
 
-        # United States speed test
-        linatl=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.atlanta.linode.com/100MB-atlanta.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$linatl" ]; then echo "Atlanta, GA, US         Linode          $linatl " | tee -a $HOME/bench.log; else :; fi
-        ezdltx=$( wget -4 -O /dev/null --timeout=3 --tries=2 https://speedtest-dc04.enzu.com/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$ezdltx" ]; then echo "Dallas, TX, US          Enzu            $ezdltx " | tee -a $HOME/bench.log; else :; fi
-        dpwa=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://sea.download.datapacket.com/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$dpwa" ]; then echo "Seattle, WA, US         Datapacket      $dpwa " | tee -a $HOME/bench.log; else :; fi
-        hhsfc=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://heliohost.org/speedtest/100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$hhsfc" ]; then echo "San Francisco, CA, US   HelioHost       $hhsfc " | tee -a $HOME/bench.log; else :; fi
-        lwwdc=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.wdc2.us.leaseweb.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$lwwdc" ]; then echo "Washington, DC, US      Leaseweb        $lwwdc " | tee -a $HOME/bench.log; else :; fi
+        # South America
+        saobr=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.sao-paulo.linode.com/100MB-sao-paulo.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$saobr" ]; then echo "Sao Paulo, Brazil       Linode          $saobr " | tee -a $HOME/bench.log; else :; fi
         echo "" | tee -a $HOME/bench.log
 
-        # South America Speed test
-        slsao=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.sao01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$slsao" ]; then echo "Sao Paulo, Brazil       Softlayer       $slsao " | tee -a $HOME/bench.log; else :; fi
+        # Asia
+        sersg=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.sin1.sg.leaseweb.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$sersg" ]; then echo "Serangoon, Singapore    Leaseweb        $sersg " | tee -a $HOME/bench.log; else :; fi
+        taitw=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://tpdb.speed2.hinet.net/test_100m.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$taitw" ]; then echo "Taipei, Taiwan          Hinet           $taitw " | tee -a $HOME/bench.log; else :; fi
+        tokjp=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$tokjp" ]; then echo "Tokyo, Japan            Linode          $tokjp " | tee -a $HOME/bench.log; else :; fi
         echo "" | tee -a $HOME/bench.log
 
-        # Asia speed test
-        lwsg=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.sin1.sg.leaseweb.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$lwsg" ]; then echo "Singapore               Leaseweb        $lwsg " | tee -a $HOME/bench.log; else :; fi
-        hitw=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://tpdb.speed2.hinet.net/test_100m.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' ) 
-        if ! [ -z "$hitw" ]; then echo "Taiwan                  Hinet           $hitw " | tee -a $HOME/bench.log; else :; fi
-        lintky=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$lintky" ]; then echo "Tokyo, Japan            Linode          $lintky " | tee -a $HOME/bench.log; else :; fi
+        # Europe
+        nurde=$( wget -4 -O /dev/null --timeout=3 --tries=2 https://nbg1-speed.hetzner.com/100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$nurde" ]; then echo "Nuremberg, Germany      Hetzner         $nurde" | tee -a $HOME/bench.log; else :; fi
+        rotnl=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://mirror.i3d.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$rotnl" ]; then echo "Rotterdam, Netherlands  id3.net         $rotnl" | tee -a $HOME/bench.log; else :; fi
+        amsnl=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.ams1.nl.leaseweb.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$amsnl" ]; then echo "Amsterdam, Netherlands  Leaseweb        $amsnl " | tee -a $HOME/bench.log; else :; fi
+        mlnit=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.milan.linode.com/100MB-milan.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$mlnit" ]; then echo "Milan, Italy            Linode          $mlnit" | tee -a $HOME/bench.log; else :; fi
         echo "" | tee -a $HOME/bench.log
 
-        # Europe speed test
-        hetzde=$( wget -4 -O /dev/null --timeout=3 --tries=2 https://speed.hetzner.de/100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$hetzde" ]; then echo "Nuremberg, Germany      Hetzner         $hetzde" | tee -a $HOME/bench.log; else :; fi
-        i3d=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://mirror.i3d.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$i3d" ]; then echo "Rotterdam, Netherlands  id3.net         $i3d" | tee -a $HOME/bench.log; else :; fi        
-        lwams=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.ams1.nl.leaseweb.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$lwams" ]; then echo "Amsterdam, Netherlands  Leaseweb        $lwams " | tee -a $HOME/bench.log; else :; fi
-        mlnit=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.mil01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$mlnit" ]; then echo "Milan, Italy            Softlayer       $mlnit" | tee -a $HOME/bench.log; else :; fi
-        echo "" | tee -a $HOME/bench.log
-
-        # Australia Speed Test
-        unetsyd=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://au-syd-speedtest01.urlnetworks.net/file100.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$unetsyd" ]; then echo "Sydney, AU              URL Networks    $unetsyd " | tee -a $HOME/bench.log; else :; fi
+        # Australia
+        sydau=$( wget -4 -O /dev/null --timeout=3 --tries=2 https://syd.download.datapacket.com/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$sydau" ]; then echo "Sydney, AU              Datapacket      $sydau " | tee -a $HOME/bench.log; else :; fi
         
         echo "" | tee -a $HOME/bench.log
         echo "" | tee -a $HOME/bench.log
