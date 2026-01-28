@@ -59,6 +59,8 @@ If you would like to report any issue with the script, any of the speedtest serv
 
 ## License
 
+[![License](https://img.shields.io/github/license/sn1f3rt/bench-sh)](LICENSE)
+
 Copyright &copy; 2019-present [Sayan "sn1f3rt" Bhattacharyya](https://sn1f3rt.dev/)  
 Copyright (C) 2015 - 2017 by Hidden Refuge (Various bug fixes and performance improvements)  
 Copyright (C) 2011 by dmmcintyre3 (Speed Test Modification)  
