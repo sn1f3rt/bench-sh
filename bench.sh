@@ -126,7 +126,7 @@ speedtest6 () {
         # Getting IPv6
         ipvii=$( wget -qO- ipv6.icanhazip.com )
 
-        # Speed test via wget for IPv6 only with 10x 100 MB files. 1 GB bandwidth will be used! No CDN - Cachefly not IPv6 ready...
+        # Speed test via wget for IPv6 only with 6x 100 MB files. 6 GB bandwidth will be used!
         echo "Speedtest (IPv6 only)" | tee -a $HOME/bench.log
         echo "---------------------" | tee -a $HOME/bench.log
         echo "Your public IPv6 is $ipvii" | tee -a $HOME/bench.log
@@ -135,8 +135,6 @@ speedtest6 () {
         echo "--------               --------        -----" | tee -a $HOME/bench.log
 
         # United States speed test
-        v6atlga=$( wget -6 -O /dev/null --timeout=3 --tries=2 http://[2602:fff6:3::4:4]/100MB.test 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$v6atlga" ]; then echo "Atanta, GA, US         QuadraNET               $v6atlga" | tee -a $HOME/bench.log; else :; fi
         v6daltx=$( wget -6 -O /dev/null --timeout=3 --tries=2 http://speedtest.dallas.linode.com/100MB-dallas.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
         if ! [ -z "$v6daltx" ]; then echo "Dallas, TX, US         Linode          $v6daltx" | tee -a $HOME/bench.log; else :; fi
         v6newnj=$( wget -6 -O /dev/null --timeout=3 --tries=2 http://speedtest.newark.linode.com/100MB-newark.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
