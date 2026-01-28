@@ -191,7 +191,7 @@ gbench () {
         echo "" | tee -a $HOME/bench.log
 
         echo "System Benchmark" | tee -a $HOME/bench.log
-        echo "-------------------------------" | tee -a $HOME/bench.log
+        echo "----------------" | tee -a $HOME/bench.log
         echo "Note: The benchmark might not always work (eg: missing dependencies)." | tee -a $HOME/bench.log
         echo "Failures are highly possible. We're using Geekbench for this test." | tee -a $HOME/bench.log
         echo "" | tee -a $HOME/bench.log
@@ -223,7 +223,7 @@ gbench () {
 }
 hlp () {
         echo ""
-        echo "bench-sh - VPS Benchmarking Script by Sn1F3rt <sn1f3rt@outlook.com>"
+        echo "bench-sh - VPS benchmarking script by sn1f3rt <sayan@asn1f3rt.dev>"
         echo ""
         echo "Usage: sh bench.sh <option>"
         echo ""
@@ -239,8 +239,6 @@ hlp () {
         echo "-b46              : Normal benchmark with IPv4 and IPv6 speedtest, I/O test and Geekbench system benchmark."       
         echo "-b64              : Same as above."
         echo "-h                : This help page."
-        echo ""
-        echo "The Geekbench system benchmark is experimental. So beware of failure!"
         echo ""
 }
 case $1 in
