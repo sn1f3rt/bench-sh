@@ -2,7 +2,7 @@
 
 A VPS benchmarking script with various features.
 
-Demo Results: https://pastebin.com/rV1DayRp
+Demo Results (full run `-b46`): https://pastebin.com/rV1DayRp
 
 ## Direct Run
 
@@ -14,6 +14,8 @@ OR
 curl -Lso- https://raw.githubusercontent.com/Sn1F3rt/bench-sh/main/bench.sh | bash
 ```
 
+> Note: use `bash -s -- [parameters]` to pass parameters.
+
 ## Parameters
 
 Help Page:
@@ -21,15 +23,15 @@ Help Page:
 
 System Info + Speedtest IPv4 + Drive Speed:
 `./bench.sh`
-Classic mode. This will use 1.5 GB bandwidth!
+Classic mode. This will use 1.4gb bandwidth!
 
 System Info + Speedtest IPv6 + Drive Speed:
 `./bench.sh -6`
-IPv6 only speed test. This will use 1 GB bandwidth!
+IPv6 only speed test. This will use 600mb bandwidth!
 
 System Info + Speedtest IPv4 & IPv6 + Drive Speed:
 `./bench.sh -46` or `./bench.sh -64`
-Dual stack speed test. This will use 2.5 GB bandwidth!
+Dual stack speed test. This will use 2gb bandwidth!
 
 System Info:
 `./bench.sh -sys`
@@ -41,23 +43,23 @@ Drive speed test via DD only.
 
 System Info + Speedtest IPv4 + Drive Speed + System Benchmark:
 `./bench.sh -b`
-Classic mode with system benchmark. This will use 1.5 GB bandwidth!
+Classic mode with system benchmark. This will use 1.4gb bandwidth!
 
 System Info + Speedtest IPv6 + Drive Speed + System Benchmark:
 `./bench.sh -b6`
-IPv6 only speed test with system benchmark. This will use 1 GB bandwidth!
+IPv6 only speed test with system benchmark. This will use 600mb bandwidth!
 
 System Info + Speedtest IPv4 & IPv6 + Drive Speed + System Benchmark:
 `./bench.sh -b46` or `./bench.sh -b64`
-Dual stack speed test with system benchmark. This will use 2.5 GB bandwidth.
+Dual stack speed test with system benchmark. This will use 2gb bandwidth.
 
 ## Issues/Suggestions
 
-If you would like to report any issue with the script, any of the speedtest servers or suggest an improvement in general, please create an issue on this GitHub repository. 
+If you would like to report any issue with the script, any of the speedtest servers or suggest an improvement in general, please create an issue in this GitHub repository. 
 
 ## License
 
-Copyright (c) 2019-2025 Sayan "sn1f3rt" Bhattacharyya  
+Copyright &copy; 2019-present [Sayan "sn1f3rt" Bhattacharyya](https://sn1f3rt.dev/)  
 Copyright (C) 2015 - 2017 by Hidden Refuge (Various bug fixes and performance improvements)  
 Copyright (C) 2011 by dmmcintyre3 (Speed Test Modification)  
 Copyright (C) 2011 by akamaras/camarg (Original Script)  
