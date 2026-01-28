@@ -7,11 +7,11 @@ Demo Results (full run `-b46`): https://pastebin.com/rV1DayRp
 ## Direct Run
 
 ```sh
-wget -qO- https://raw.githubusercontent.com/Sn1F3rt/bench-sh/main/bench.sh | bash
+wget -qO- https://raw.githubusercontent.com/sn1f3rt/bench-sh/main/bench.sh | bash
 ```
 OR
 ```sh
-curl -Lso- https://raw.githubusercontent.com/Sn1F3rt/bench-sh/main/bench.sh | bash
+curl -Lso- https://raw.githubusercontent.com/sn1f3rt/bench-sh/main/bench.sh | bash
 ```
 
 > Note: use `bash -s -- [parameters]` to pass parameters.
