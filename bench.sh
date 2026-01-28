@@ -121,7 +121,7 @@ speedtest4 () {
 
         # Australia Speed Test
         dpsyd=$( wget -4 -O /dev/null --timeout=3 --tries=2 https://syd.download.datapacket.com/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$dpsyd" ]; then echo "Sydney, AU              Datapacket    $dpsyd " | tee -a $HOME/bench.log; else :; fi
+        if ! [ -z "$dpsyd" ]; then echo "Sydney, AU              Datapacket      $dpsyd " | tee -a $HOME/bench.log; else :; fi
         
         echo "" | tee -a $HOME/bench.log
         echo "" | tee -a $HOME/bench.log
