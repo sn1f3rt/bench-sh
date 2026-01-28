@@ -190,14 +190,13 @@ iotest () {
 gbench () {
         echo "" | tee -a $HOME/bench.log
 
-        echo "System Benchmark (Experimental)" | tee -a $HOME/bench.log
+        echo "System Benchmark" | tee -a $HOME/bench.log
         echo "-------------------------------" | tee -a $HOME/bench.log
-        echo "" | tee -a $HOME/bench.log
         echo "Note: The benchmark might not always work (eg: missing dependencies)." | tee -a $HOME/bench.log
         echo "Failures are highly possible. We're using Geekbench for this test." | tee -a $HOME/bench.log
         echo "" | tee -a $HOME/bench.log
-        gb_dl="http://cdn.geekbench.com/Geekbench-5.0.1-Linux.tar.gz"
-        gb_name="Geekbench 5.0.1"
+        gb_dl="https://cdn.geekbench.com/Geekbench-6.5.0-Linux.tar.gz"
+        gb_name="Geekbench 6.5.0"
         echo "File is located at $gb_dl" | tee -a $HOME/bench.log
         echo "Downloading and extracting $gb_name" | tee -a $HOME/bench.log
         wget -qO - "$gb_dl" | tar xzv 2>&1 >/dev/null
@@ -209,12 +208,12 @@ gbench () {
         echo "" >> $HOME/bench.log
         echo "--- Geekbench Results ---" >> $HOME/bench.log
         sleep 2
-        $HOME/Geekbench-5.0.1-Linux/geekbench5 >> $HOME/bench.log
+        $HOME/Geekbench-6.5.0-Linux/geekbench6 >> $HOME/bench.log
         echo "--- Geekbench Results End ---" >> $HOME/bench.log
         echo "" >> $HOME/bench.log
-        echo "Finished. Removing Geekbench files" | tee -a $HOME/bench.log
+        echo "Finished. Removing Geekbench files..." | tee -a $HOME/bench.log
         sleep 1
-        rm -rf $HOME/Geekbench-5.0.1-Linux/
+        rm -rf $HOME/Geekbench-6.5.0-Linux/
         echo "" | tee -a $HOME/bench.log
         gbl=$(sed -n '/following link/,/following link/ {/following link\|^$/b; p}' $HOME/bench.log | sed 's/^[ \t]*//;s/[ \t]*$//' )
         echo "Benchmark Results: $gbl" | tee -a $HOME/bench.log
