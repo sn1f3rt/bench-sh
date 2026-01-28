@@ -97,9 +97,9 @@ speedtest4 () {
 
         # Asia
         sersg=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.sin1.sg.leaseweb.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$sersg" ]; then echo "Serangoon, Singapore      Leaseweb        $sersg " | tee -a $HOME/bench.log; else :; fi
+        if ! [ -z "$sersg" ]; then echo "Serangoon, Singapore    Leaseweb        $sersg " | tee -a $HOME/bench.log; else :; fi
         taitw=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://tpdb.speed2.hinet.net/test_100m.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$taitw" ]; then echo "Taipei, Taiwan            Hinet           $taitw " | tee -a $HOME/bench.log; else :; fi
+        if ! [ -z "$taitw" ]; then echo "Taipei, Taiwan          Hinet           $taitw " | tee -a $HOME/bench.log; else :; fi
         tokjp=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
         if ! [ -z "$tokjp" ]; then echo "Tokyo, Japan            Linode          $tokjp " | tee -a $HOME/bench.log; else :; fi
         echo "" | tee -a $HOME/bench.log
