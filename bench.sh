@@ -35,12 +35,18 @@ sysinfo () {
         bdates=$( date )
 
         echo '' | tee -a $HOME/bench.log
-        echo '__________                     .__        _________ ___ ___  ' | tee -a $HOME/bench.log
-        echo '\______   \ ____   ____   ____ |  |__    /   _____//   |   \ ' | tee -a $HOME/bench.log
-        echo ' |    |  _// __ \ /    \_/ ___\|  |  \   \_____  \/    ~    \' | tee -a $HOME/bench.log
-        echo ' |    |   \  ___/|   |  \  \___|   Y  \  /        \    Y    /' | tee -a $HOME/bench.log
-        echo ' |______  /\___  >___|  /\___  >___|  / /_______  /\___|_  / ' | tee -a $HOME/bench.log
-        echo '        \/     \/     \/     \/     \/          \/       \/  ' | tee -a $HOME/bench.log
+        echo '__________                     .__      _________ ___ ___     ' | tee -a $HOME/bench.log
+        echo '\______   \ ____   ____   ____ |  |__  /   _____//   |   \    ' | tee -a $HOME/bench.log
+        echo ' |    |  _// __ \ /    \_/ ___\|  |  \ \_____  \/    ~    \   ' | tee -a $HOME/bench.log
+        echo ' |    |   \  ___/|   |  \  \___|   Y  \/        \    Y    /   ' | tee -a $HOME/bench.log
+        echo ' |______  /\___  >___|  /\___  >___|  /_______  /\___|_  /    ' | tee -a $HOME/bench.log
+        echo '        \/     \/     \/     \/     \/        \/       \/     ' | tee -a $HOME/bench.log
+        echo '___.                         ____  _____________         __   ' | tee -a $HOME/bench.log
+        echo '\_ |__ ___.__.   ______ ____/_   |/ ____\_____  \_______/  |_ ' | tee -a $HOME/bench.log
+        echo ' | __ <   |  |  /  ___//    \|   \   __\  _(__  <_  __ \   __\' | tee -a $HOME/bench.log
+        echo ' | \_\ \___  |  \___ \|   |  \   ||  |   /       \  | \/|  |  ' | tee -a $HOME/bench.log
+        echo ' |___  / ____| /____  >___|  /___||__|  /______  /__|   |__|  ' | tee -a $HOME/bench.log
+        echo '     \/\/           \/     \/                  \/             ' | tee -a $HOME/bench.log
         echo '' | tee -a $HOME/bench.log
 
         echo "Benchmark started on $bdates" | tee -a $HOME/bench.log
