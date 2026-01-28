@@ -95,8 +95,8 @@ speedtest4 () {
         echo "" | tee -a $HOME/bench.log
 
         # South America Speed test
-        slsao=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.sao01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$slsao" ]; then echo "Sao Paulo, Brazil       Softlayer       $slsao " | tee -a $HOME/bench.log; else :; fi
+        linsao=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.sao-paulo.linode.com/100MB-sao-paulo.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "linsao" ]; then echo "Sao Paulo, Brazil       Linode       $linsao " | tee -a $HOME/bench.log; else :; fi
         echo "" | tee -a $HOME/bench.log
 
         # Asia speed test
@@ -109,14 +109,14 @@ speedtest4 () {
         echo "" | tee -a $HOME/bench.log
 
         # Europe speed test
-        hetzde=$( wget -4 -O /dev/null --timeout=3 --tries=2 https://speed.hetzner.de/100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        hetzde=$( wget -4 -O /dev/null --timeout=3 --tries=2 https://nbg1-speed.hetzner.com/100MB.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
         if ! [ -z "$hetzde" ]; then echo "Nuremberg, Germany      Hetzner         $hetzde" | tee -a $HOME/bench.log; else :; fi
         i3d=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://mirror.i3d.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
         if ! [ -z "$i3d" ]; then echo "Rotterdam, Netherlands  id3.net         $i3d" | tee -a $HOME/bench.log; else :; fi        
         lwams=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.ams1.nl.leaseweb.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
         if ! [ -z "$lwams" ]; then echo "Amsterdam, Netherlands  Leaseweb        $lwams " | tee -a $HOME/bench.log; else :; fi
-        mlnit=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.mil01.softlayer.com/downloads/test100.zip 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$mlnit" ]; then echo "Milan, Italy            Softlayer       $mlnit" | tee -a $HOME/bench.log; else :; fi
+        mlnit=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.milan.linode.com/100MB-milan.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
+        if ! [ -z "$mlnit" ]; then echo "Milan, Italy            Linode       $mlnit" | tee -a $HOME/bench.log; else :; fi
         echo "" | tee -a $HOME/bench.log
 
         # Australia Speed Test
