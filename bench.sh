@@ -141,6 +141,7 @@ speedtest6 () {
         if ! [ -z "$v6daltx" ]; then echo "Dallas, TX, US         Linode          $v6daltx" | tee -a $HOME/bench.log; else :; fi
         v6newnj=$( wget -6 -O /dev/null --timeout=3 --tries=2 http://speedtest.newark.linode.com/100MB-newark.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
         if ! [ -z "$v6newnj" ]; then echo "Newark, NJ, US         Linode          $v6newnj" | tee -a $HOME/bench.log; else :; fi
+        echo "" | tee -a $HOME/bench.log
 
         # Asia speed test
         v6tokjp=$( wget -6 -O /dev/null --timeout=3 --tries=2 http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
@@ -154,6 +155,7 @@ speedtest6 () {
         if ! [ -z "$v6frade" ]; then echo "Frankfurt, Germany     Linode          $v6frade" | tee -a $HOME/bench.log; else :; fi
         v6lonuk=$( wget -6 -O /dev/null --timeout=3 --tries=2 http://speedtest.london.linode.com/100MB-london.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
         if ! [ -z "$v6lonuk" ]; then echo "London, UK             Linode          $v6lonuk" | tee -a $HOME/bench.log; else :; fi
+
         echo "" | tee -a $HOME/bench.log
         echo "" | tee -a $HOME/bench.log
 }
