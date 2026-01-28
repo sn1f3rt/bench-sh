@@ -16,7 +16,7 @@ sysinfo () {
         vram=$( free -m | awk 'NR==3 {print $2}' )
 
         # Reading system uptime
-        up=$( uptime | awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }' | sed 's/^[ \t]*//;s/[ \t]*$//' )
+        up=$(uptime -p | sed 's/^up //')
 
         # Reading operating system and version
         opsy=$( cat /etc/os-release | grep PRETTY_NAME | tr -d '"' | sed -e "s/^PRETTY_NAME=//" ) 
