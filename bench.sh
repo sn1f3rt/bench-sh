@@ -96,7 +96,7 @@ speedtest4 () {
 
         # South America Speed test
         linsao=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.sao-paulo.linode.com/100MB-sao-paulo.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "linsao" ]; then echo "Sao Paulo, Brazil       Linode       $linsao " | tee -a $HOME/bench.log; else :; fi
+        if ! [ -z "linsao" ]; then echo "Sao Paulo, Brazil       Linode          $linsao " | tee -a $HOME/bench.log; else :; fi
         echo "" | tee -a $HOME/bench.log
 
         # Asia speed test
@@ -116,7 +116,7 @@ speedtest4 () {
         lwams=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.ams1.nl.leaseweb.net/100mb.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
         if ! [ -z "$lwams" ]; then echo "Amsterdam, Netherlands  Leaseweb        $lwams " | tee -a $HOME/bench.log; else :; fi
         mlnit=$( wget -4 -O /dev/null --timeout=3 --tries=2 http://speedtest.milan.linode.com/100MB-milan.bin 2>&1 | awk '/\/dev\/null/ {speed=$3 $4} END {gsub(/\(|\)/,"",speed); print speed}' )
-        if ! [ -z "$mlnit" ]; then echo "Milan, Italy            Linode       $mlnit" | tee -a $HOME/bench.log; else :; fi
+        if ! [ -z "$mlnit" ]; then echo "Milan, Italy            Linode          $mlnit" | tee -a $HOME/bench.log; else :; fi
         echo "" | tee -a $HOME/bench.log
 
         # Australia Speed Test
